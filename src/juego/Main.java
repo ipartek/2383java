@@ -19,6 +19,15 @@ public class Main {
 		Juego juego2 = new Juego(5);
 		juego2.muestraVidasRestantes();
 		juego2.actualizarRecord();*/
+		
+		JuegoAdivinaNumero j = new JuegoAdivinaNumero(5, 5);
+		j.juega();
+		
+		JuegoAdivinaNumeroPar jPar = new JuegoAdivinaNumeroPar(5, 4);
+		jPar.juega();
+		
+		JuegoAdivinaNumeroImpar jImpar = new JuegoAdivinaNumeroImpar(5, 3);
+		jImpar.juega();
 	}
 
 }
