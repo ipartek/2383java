@@ -1,4 +1,4 @@
-package juego;
+package juegos;
 
 public abstract class Juego {
 	
@@ -38,6 +38,10 @@ public abstract class Juego {
 		}
 	}
 	
-	public abstract void juega();
+	public int getNVidasRestantes() {
+		return nVidasRestantes;
+	}
+	
+	//public abstract void juega();
 
 }

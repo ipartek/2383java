@@ -1,14 +1,19 @@
-package juego;
+package juegos.numeros;
 
+import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
-public class JuegoAdivinaNumero extends Juego{
+import juegos.Juego;
+import juegos.interfaces.Jugable;
+
+public class JuegoAdivinaNumero extends Juego implements Jugable{
 	
 	public int numeroAdivinar;
+	private Random random = new Random(new Date().getTime());
 	
-	public JuegoAdivinaNumero(int nVidasRestantes, int numeroAdivinar) {
+	public JuegoAdivinaNumero(int nVidasRestantes) {
 		super(nVidasRestantes);
-		this.numeroAdivinar = numeroAdivinar;
 	}
 
 	public void juega() {
@@ -19,7 +24,7 @@ public class JuegoAdivinaNumero extends Juego{
 		//private boolean sigoVivo = true;
 		
 		do {
-			System.out.println("Adivina el numero que es entre 0 y 10");
+			//System.out.println("Adivina el numero que es entre 0 y 10");
 			int numeroTeclado = sc.nextInt();
 			if(validaNumero(numeroTeclado)) {
 				if(numeroTeclado == numeroAdivinar) {
@@ -55,8 +60,22 @@ public class JuegoAdivinaNumero extends Juego{
 		}*/
 	}
 	
+	public void reiniciarPartida() {
+		super.reiniciarPartida();
+		numeroAdivinar = random.nextInt(11);
+	}
+	
 	public boolean validaNumero(int numero) {
 		return true;
+	}
+
+	public void muestraNombre() {
+		System.out.println("Adivina un numero!!");
+		
+	}
+
+	public void muestraInfo() {
+		System.out.println("Adivina un numero de 0 a 10 en " + getNVidasRestantes() + " intentos.");
 	}
 
 }
