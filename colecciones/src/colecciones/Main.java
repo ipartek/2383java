@@ -1,5 +1,6 @@
 package colecciones;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
@@ -31,18 +33,64 @@ public class Main {
 		for(int i=0;i<premios.size();i++) {
 			for(int j=i+1;j<premios.size();j++) {
 				if(premios.get(i).getNumeroPremiado() == premios.get(j).getNumeroPremiado()) {
-					System.out.println("el numero " + premios.get(i).getNumeroPremiado() +" esta repetido");
-
+					System.out.println("el numero " + premios.get(i).getNumeroPremiado() +" esta repetido " + i + " " + j);
+					boolean existe = false;
+					for(int k=0;k<premiosRepetidos.size();k++) {
+						if(premios.get(j).getNumeroPremiado() == premiosRepetidos.get(k).getNumeroPremiado()) {
+							premiosRepetidos.set(k, new FrecuenciaPremio(premiosRepetidos.get(k).getNumeroPremiado(), premiosRepetidos.get(k).getNumVeces()+1));
+							existe = true;
+							break;
+						}
+					}
+					
+					if(!existe) {
+						FrecuenciaPremio fp = new FrecuenciaPremio(premios.get(i).getNumeroPremiado(), 1);
+						premiosRepetidos.add(fp);	
+					}
+					
+					break;
 				}
 			}
 		}
+/*
+		ArrayList<FrecuenciaPremio> todosPremiosRepetidos = new ArrayList<FrecuenciaPremio>();
+		for(int i=0;i<premios.size();i++) {
+			FrecuenciaPremio fp = new FrecuenciaPremio(premios.get(i).getNumeroPremiado(), 0);
+			
+			if(!todosPremiosRepetidos.isEmpty()) {
+				boolean repetido = false;
+				for(int j=0;j<todosPremiosRepetidos.size();j++) {
+					if(premios.get(i).getNumeroPremiado() == todosPremiosRepetidos.get(j).getNumeroPremiado()) {
+						todosPremiosRepetidos.set(j, new FrecuenciaPremio(todosPremiosRepetidos.get(j).getNumeroPremiado(), todosPremiosRepetidos.get(j).getNumVeces()+1));
+						repetido = true;
+					}
+				}
+
+				if(!repetido) {
+					todosPremiosRepetidos.add(fp);
+				}
+			}else {
+				todosPremiosRepetidos.add(fp);
+			}
+			
+		}
+		
+		ArrayList<FrecuenciaPremio> premiosRepetidos = new ArrayList<FrecuenciaPremio>();
+		
+		for(FrecuenciaPremio fp : todosPremiosRepetidos) {
+			if(fp.getNumVeces()>0) {
+				premiosRepetidos.add(fp);
+			}
+		}
+		
+		
+*/
 		
 		System.out.println("FIN");
-
 	}
 
 	private static Premio getPremio(int dia, int mes, int anyo) {
-		 return new Premio(dia, mes, anyo, random.nextInt(100000));
+		 return new Premio(dia, mes, anyo, random.nextInt(10));
 	 }
 	 
 	 private static void cargarPremios(){
@@ -105,7 +153,9 @@ public class Main {
 				premios.add(premio);
 			}
 			
-		} catch (FileNotFoundException e) {
+		} catch (EOFException e) {
+			
+		}catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
