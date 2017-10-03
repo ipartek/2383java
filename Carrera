@@ -1,13 +1,10 @@
 Crear un clase Animal que extienda de thread cuyo constructor reciba
-
 por parámetros el nombre del animal y la prioridad que se le da. Elabora-
 remos un programa en el que se definan tres tipos de animales guepar-
 do, liebre y tortuga de manera que los tres vayan a competir en una ca-
 rrera. La pista constará de 30 metros y un metro recorrido se representa-
 rá escribiendo en pantalla la inicial en mayúsculas del animal que lo haya
-
 cubierto. Visualizar la carrera por pantalla indicando el momento de lle-
 gada de cada uno de los animales de acuerdo con la realidad (primero el
-
 guepardo, luego la liebre y, por fin, la tortuga) saliendo sin embargo en
 orden inverso.
