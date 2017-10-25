@@ -1,0 +1,328 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster:200,300,400,700|Magra:400,700);
+
+/*
+	Elemental: A responsive HTML5 website template by HTML5Templates.com
+	Released for free under the Creative Commons Attribution 3.0 license (html5templates.com/license)
+	Visit http://html5templates.com for more great templates or follow us on Twitter @HTML5T
+*/
+
+/*********************************************************************************/
+/* Global                                                                        */
+/*********************************************************************************/
+
+/* Basic */
+
+body {
+	background: #252525 url(main-content-bg.jpg) repeat;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	line-height: 1.75em;
+	color: #616161;
+}
+
+h2 {
+	letter-spacing: -2px;
+	font-family: 'Magra', sans-serif;
+	font-size: 2.2em;
+	color: #171717;
+}
+
+p, ol {
+	line-height: 200%;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+a {
+	color: #368E03;
+}
+
+strong {
+	font-weight: 700;
+}
+
+/* Header Content Wrapper */
+
+#header-wrapper {
+	overflow: hidden;
+	background: url(header-wrapper-bg.jpg) repeat;
+}
+
+/* Page Wrapper */
+
+#page-wrapper {
+}
+
+#page-wrapper a img {
+	width: 100%;
+	display: block;
+	margin-bottom: 30px;
+}
+
+/* Footer Content Wrapper */
+
+#footer-wrapper {
+	overflow: hidden;
+	padding: 70px 0px;
+	background: url(footer-wrapper-bg.jpg) repeat;
+	border-top: 1px solid #EAEAEA;
+}
+
+/* Footer Content */
+
+#footer-content {
+}
+
+#footer-content h2 {
+	padding: 0px 0px 30px 0px;
+	letter-spacing: -1px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
+	color: #000000
+}
+
+#footer-content .margin-bottom {
+}
+
+#footer-content a img {
+	width: 100%;
+	display: block;
+}
+
+/* List style */
+
+.list-style1 {
+}
+
+.list-style1 li {
+	padding: 20px 0px 20px 0px;
+	background: url(link-style1-divider.png) repeat-x left top;
+}
+
+.list-style1 p {
+	margin: 0px;
+	padding: 0px;
+}
+
+.list-style1 img {
+	float: left;
+	margin-right: 20px;
+}
+
+.list-style1 .posted {
+	padding: 10px 0px 0px 0px;
+	font-size: 8pt;
+	font-style: italic;
+	color: #A2A2A2;
+}
+
+.list-style1 .first {
+	padding-top: 0px;
+	background: none;
+}
+
+/* Reusable Buttons */
+
+.button {
+	display: inline-block;
+	outline: 0;
+	white-space: nowrap;
+	margin-top: 20px;
+	padding: 10px 30px 10px 30px;
+	background: #277700;
+	box-shadow: inset 0px 0px 0px 1px #83C862, 0px 2px 3px 0px rgba(0,0,0,0.25);
+	border: solid 1px #277700;
+	border-radius: 6px;
+	background-image: -moz-linear-gradient(top, #40AA0E, #328B06);
+	background-image: -webkit-linear-gradient(top, #40AA0E, #328B06);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#40AA0E), to(#328B06));
+	background-image: -ms-linear-gradient(top, #40AA0E, #328B06);
+	background-image: -o-linear-gradient(top, #40AA0E, #328B06);
+	background-image: linear-gradient(top, #40AA0E, #328B06);
+	text-decoration: none;
+	text-shadow: -1px -1px 0 rgba(0,0,0,0.5);
+	font-size: 12pt;
+	color: #FFFFFF;
+}
+/*
+	Elemental: A responsive HTML5 website template by HTML5Templates.com
+	Released for free under the Creative Commons Attribution 3.0 license (html5templates.com/license)
+	Visit http://html5templates.com for more great templates or follow us on Twitter @HTML5T
+*/
+
+/*********************************************************************************/
+/* Desktop (>= 480px)                                                            */
+/*********************************************************************************/
+
+
+/* Header Content Wrapper */
+
+#header-wrapper {
+}
+
+#header-wrapper2 {
+	background: url(header-bg.jpg) no-repeat center top
+}
+
+.homepage #header-wrapper2 {
+}
+
+/* Page Wrapper */
+
+#page-wrapper {
+	overflow: hidden;
+	padding: 50px 0px;
+	background-color: #FFFFFF;
+}
+
+#page-wrapper h2 {
+	padding: 0px 0px 30px 0px;
+}
+
+#page-wrapper a img {
+}
+
+/* Footer Content Wrapper */
+
+#footer-wrapper {
+}
+
+/* Header */
+
+#header {
+}
+
+/* Logo */
+
+#logo {
+	overflow: hidden;
+	height: 60px;
+	padding-top: 50px;
+}
+
+#logo h1 a {
+	float: left;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #38800E;
+	text-transform: lowercase;
+	font-family: 'Lobster', cursive;
+	font-size: 54pt;
+	font-weight: 200;
+	color: #FFFFFF;
+}
+
+#logo p {
+	float: left;
+	padding-left: 10px;
+	letter-spacing: -2px;
+	font-family: 'Magra', sans-serif;
+	font-size: 20pt;
+	font-weight: 200;
+	color: #FFFFFF;
+}
+
+/* Menu */
+
+#menu {
+	overflow: hidden;
+	height: 49px;
+	margin-bottom: 20px;
+	background: url(menu-bg.png) no-repeat left top;
+}
+
+#menu li {
+	float: left;
+	background: url(menu-divider-bg.png) no-repeat right top;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	margin-right: 2px;
+	padding: 0px 20px;
+	line-height: 49px;
+	text-decoration: none;
+	font-size: 9pt;
+	color: #B2B2B2;
+}
+
+#menu a:hover {
+	background: url(menu-hover-bg.png) repeat-x left top;
+	color: #FFFFFF;
+}
+
+/* Banner Content */
+
+#banner {
+	overflow: hidden;
+	padding: 20px;
+	margin-bottom: 20px;
+	background-color: rgba(0,0,0,.1);
+}
+
+#banner a img {
+	width: 100%;
+	display: block;
+}
+
+/* Splash Content */
+
+#splash {
+	overflow: hidden;
+	padding: 0px 0px 30px 0px;
+	letter-spacing: -3px;
+	line-height: 110%;
+	text-align: center;
+	font-family: 'Magra', sans-serif;
+	font-weight: 300;
+	font-size: 48px;
+	color: #696969
+}
+
+#splash span {
+	color: #000000;
+}
+
+/* Footer Content */
+
+#footer-content {
+}
+
+#footer-content h2 {
+}
+
+#footer-content .margin-bottom {
+	padding-bottom: 20px;
+}
+
+/* Copyright */
+
+#copyright {
+	overflow: hidden;
+	height: 200px;
+	text-align: center;
+	font-size: 10pt;
+	color: #555;
+	padding: 2em;
+}
+
+#copyright p {
+	padding: 40px 0px 0px 0px;
+	text-align: center;
+}
+
+#copyright a {
+	color: #555;
+}
+
+
+
+
+
+
+
+
+
+
