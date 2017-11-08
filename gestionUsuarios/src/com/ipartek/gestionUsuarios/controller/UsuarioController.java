@@ -1,6 +1,8 @@
 package com.ipartek.gestionUsuarios.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +27,12 @@ public class UsuarioController extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated mehod stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ArrayList<Usuario> usuarios = usuarioService.getUsuarios();
+		
+		request.setAttribute("usuarios", usuarios);
+		
+		request.getRequestDispatcher("listaUsuarios.jsp").forward(request, response);
+		
 	}
 
 

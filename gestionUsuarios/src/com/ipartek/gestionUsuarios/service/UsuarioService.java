@@ -1,5 +1,7 @@
 package com.ipartek.gestionUsuarios.service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.ipartek.gestionUsuarios.dao.AccesoDB;
@@ -18,6 +20,10 @@ public class UsuarioService {
 			AccesoDB.addUsuario(u);
 			return true;
 		}
+	}
+
+	public ArrayList<Usuario> getUsuarios() {
+		return AccesoDB.getUsuarios();
 	}
 
 }

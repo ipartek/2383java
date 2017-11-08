@@ -84,5 +84,28 @@ public class AccesoDB {
 		}
 		
 	}
+
+	public static ArrayList<Usuario> getUsuarios() {
+		crearConexion();
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		
+		try {
+			ps = conexion.prepareStatement("select * from usuarios");
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Usuario u = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3));
+				usuarios.add(u);
+			}
+			
+			return usuarios;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return usuarios;
+		}finally {
+			cerrarConexion();
+		}
+		
+	}
 	
 }
