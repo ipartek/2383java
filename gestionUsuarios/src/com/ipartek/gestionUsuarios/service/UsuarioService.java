@@ -10,7 +10,7 @@ import com.ipartek.gestionUsuarios.domain.Usuario;
 public class UsuarioService {
 	
 	public boolean addUsuario(HttpServletRequest request) {
-		Usuario u = new Usuario(request.getParameter("nombre"), request.getParameter("apellidos"), request.getParameter("email"));
+		Usuario u = new Usuario(request.getParameter("nombre"), request.getParameter("apellidos"), request.getParameter("email"), request.getParameter("pass"));
 		
 		boolean existeMail = AccesoDB.existeEmail(request.getParameter("email"));
 		
@@ -24,6 +24,10 @@ public class UsuarioService {
 
 	public ArrayList<Usuario> getUsuarios() {
 		return AccesoDB.getUsuarios();
+	}
+
+	public Usuario login(String email, String pass) {
+		return AccesoDB.login(email, pass);
 	}
 
 }

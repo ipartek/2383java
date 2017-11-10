@@ -10,6 +10,7 @@
 <title>Listado de usuarios</title>
 </head>
 <body>
+	<%@include file="includes/cabecera.jsp" %>
 	<h1>Los usuarios son:</h1>
 	<table>
 		<tr>
@@ -17,13 +18,17 @@
 			<th>Apellidos</th>
 			<th>Email</th>
 		</tr>
-		<%for(Usuario u : usuarios){ %>
-			<tr>
-				<td><%=u.getNombre() %></td>
-				<td><%=u.getApellidos() %></td>
-				<td><%=u.getEmail() %></td>
-			</tr>
-		<%} %>
+		
+		<%
+		if(usuarios!=null){
+			for(Usuario u : usuarios){ %>
+				<tr>
+					<td><%=u.getNombre() %></td>
+					<td><%=u.getApellidos() %></td>
+					<td><%=u.getEmail() %></td>
+				</tr>
+			<%}
+		}%>
 	</table>
 </body>
 </html>

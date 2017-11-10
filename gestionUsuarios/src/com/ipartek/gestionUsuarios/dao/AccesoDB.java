@@ -48,10 +48,12 @@ public class AccesoDB {
 	public static void addUsuario(Usuario u){
 		crearConexion();
 		try {
-			ps = conexion.prepareStatement("insert into usuarios (nombre, apellidos) values (?,?)");
+			ps = conexion.prepareStatement("insert into usuarios (nombre, apellidos, email, password) values (?,?,?,?)");
 			
 			ps.setString(1, u.getNombre());
 			ps.setString(2, u.getApellidos());
+			ps.setString(3, u.getEmail());
+			ps.setString(4, u.getPassword());
 			
 			ps.executeUpdate();
 			
@@ -94,7 +96,7 @@ public class AccesoDB {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				Usuario u = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3));
+				Usuario u = new Usuario(rs.getInt(3), rs.getString(1), rs.getString(2), rs.getString(4), rs.getString(5));
 				usuarios.add(u);
 			}
 			
@@ -106,6 +108,30 @@ public class AccesoDB {
 			cerrarConexion();
 		}
 		
+	}
+
+	public static Usuario login(String email, String pass) {
+		crearConexion();
+		
+		try {
+			ps = conexion.prepareStatement("select * from usuarios where email = ? and password = ?");
+			ps.setString(1, email);
+			ps.setString(2, pass);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return new Usuario(rs.getInt(3), rs.getString(1), rs.getString(2), rs.getString(4), rs.getString(5));
+			}else {
+				return null;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			cerrarConexion();
+		}
 	}
 	
 }
