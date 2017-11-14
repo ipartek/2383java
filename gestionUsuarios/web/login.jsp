@@ -12,8 +12,12 @@
 	<div><input type="password" name="pass" placeholder="Contraseña"></div>
 	<div><button type="submit">Enviar</button></div>
 </form>
+<div>Date de alta <a href="altaUsuario.html">AQUÍ!</a></div>
 <%if(request.getParameter("error")!=null){ %>
 	<div>Usuario o contraseña INCORRECTOS</div>
+<%} %>
+<%if(request.getParameter("usuarioOK")!=null){ %>
+	<div>Usuario creado correctamente</div>
 <%} %>
 </body>
 </html>

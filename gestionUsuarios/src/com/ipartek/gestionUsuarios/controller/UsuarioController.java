@@ -9,13 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ipartek.gestionUsuarios.dao.AccesoDB;
 import com.ipartek.gestionUsuarios.domain.Usuario;
 import com.ipartek.gestionUsuarios.service.UsuarioService;
 
-/**
- * Servlet implementation class UsuarioController
- */
 @WebServlet(name = "usuarioController", urlPatterns = { "/usuarioController" })
 public class UsuarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,25 +23,15 @@ public class UsuarioController extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Usuario> usuarios = usuarioService.getUsuarios();
-		
-		request.setAttribute("usuarios", usuarios);
-		
-		request.getRequestDispatcher("listaUsuarios.jsp").forward(request, response);
-		
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		boolean alta = usuarioService.addUsuario(request);
-		
-		if(alta) {
-			response.sendRedirect("usuarioOK.html");
+		if(request.getSession().getAttribute("usuario")!=null) {	
+			ArrayList<Usuario> usuarios = usuarioService.getUsuarios();
+			
+			request.setAttribute("usuarios", usuarios);
+			
+			request.getRequestDispatcher("privado/listaUsuarios.jsp").forward(request, response);
 		}else {
-			response.sendRedirect("altaUsuario.html");
+			response.sendRedirect("login.jsp");
 		}
-		
 		
 	}
 

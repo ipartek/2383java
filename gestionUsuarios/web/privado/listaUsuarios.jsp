@@ -10,7 +10,7 @@
 <title>Listado de usuarios</title>
 </head>
 <body>
-	<%@include file="includes/cabecera.jsp" %>
+	<%@include file="../includes/cabecera.jsp" %>
 	<h1>Los usuarios son:</h1>
 	<table>
 		<tr>

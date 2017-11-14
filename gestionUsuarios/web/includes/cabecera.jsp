@@ -10,8 +10,5 @@
 	%>
 		<%=u.getNombre() %> <%=u.getApellidos() %>
 	<%
-	}else{
-		response.sendRedirect("login.jsp?error=true");
-	}
-	%>	
+	}%>
 </div>
