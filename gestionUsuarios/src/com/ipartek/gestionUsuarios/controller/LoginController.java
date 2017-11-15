@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.gestionUsuarios.domain.Usuario;
+import com.ipartek.gestionUsuarios.service.CookieService;
 import com.ipartek.gestionUsuarios.service.UsuarioService;
 
 
@@ -17,33 +18,32 @@ import com.ipartek.gestionUsuarios.service.UsuarioService;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UsuarioService usuarioService;
+	CookieService cookieService;
 
 	@Override
 	public void init() throws ServletException {
 		usuarioService = new UsuarioService();
+		cookieService = new CookieService();
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Cookie nuevaCookie = new Cookie("prueba", "AY!! mi cookie");
-		
-		nuevaCookie.setMaxAge(10);
-		
-		response.addCookie(nuevaCookie);
-		
-		Cookie[] cs = request.getCookies();
-		
-		for(Cookie c : cs) {
-			System.out.println(c.getName());
-		}
-		
 		Usuario u = usuarioService.login(request.getParameter("email"), request.getParameter("pass"));
 		
 		if(u!=null) {
+			
+			if(request.getParameter("recuerdame")!=null) {
+				cookieService.createCookie(response, "login", request.getParameter("email") + "," + request.getParameter("pass"), 100 * 24 * 60 * 60);
+			}else {
+				cookieService.deleteCookie(request, response, "login");
+			}
+			
 			request.getSession().setAttribute("usuario", u);
 			
 			response.sendRedirect("usuarioController");
 		}else {
+			cookieService.deleteCookie(request, response, "login");
+			
 			response.sendRedirect("login.jsp?error=true");
 		}
 	}

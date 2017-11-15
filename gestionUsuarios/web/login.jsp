@@ -11,6 +11,7 @@
 	<div><input type="email" name="email" placeholder="Email"></div>
 	<div><input type="password" name="pass" placeholder="Contraseña"></div>
 	<div><button type="submit">Enviar</button></div>
+	<div><input type="checkbox" name="recuerdame" id="recuerdame"><label for="recuerdame">Recuerdame</label></div>
 </form>
 <div>Date de alta <a href="altaUsuario.html">AQUÍ!</a></div>
 <%if(request.getParameter("error")!=null){ %>
