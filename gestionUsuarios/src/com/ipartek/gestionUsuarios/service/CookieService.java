@@ -26,11 +26,11 @@ public class CookieService {
 		
 	}
 
-	public String getCookieValue(HttpServletRequest req, String string) {
+	public String getCookieValue(HttpServletRequest req, String nombreCookie) {
 		Cookie[] cs = req.getCookies();
 		
 		for(Cookie c : cs) {
-			if("login".equals(c.getName())) {
+			if(nombreCookie.equals(c.getName())) {
 				return c.getValue();
 			}
 		}
