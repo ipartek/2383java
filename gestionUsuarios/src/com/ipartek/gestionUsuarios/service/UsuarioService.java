@@ -30,4 +30,8 @@ public class UsuarioService {
 		return AccesoDB.login(email, pass);
 	}
 
+	public Boolean existeUsuario(String email) {
+		return AccesoDB.existeEmail(email);
+	}
+
 }

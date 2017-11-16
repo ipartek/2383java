@@ -11,6 +11,7 @@
 </head>
 <body>
 	<%@include file="../includes/cabecera.jsp" %>
+	<button>Crear Usuario</button>
 	<h1>Los usuarios son:</h1>
 	<table>
 		<tr>
