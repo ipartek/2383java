@@ -133,5 +133,28 @@ public class AccesoDB {
 			cerrarConexion();
 		}
 	}
+
+	public static Usuario getUsuarioByEmail(String email) {
+		crearConexion();
+		
+		try {
+			ps = conexion.prepareStatement("select * from usuarios where email = ?");
+			ps.setString(1, email);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return new Usuario(rs.getInt(3), rs.getString(1), rs.getString(2), rs.getString(4), rs.getString(5));
+			}else {
+				return null;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			cerrarConexion();
+		}
+		
+		return null;
+	}
 	
 }

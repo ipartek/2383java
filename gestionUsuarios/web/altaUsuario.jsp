@@ -33,36 +33,6 @@
 		</div>
 	</div>
 	<%@include file="includes/js.jsp" %>
-	<script type="text/javascript">
-		$(function(){
-			var $email = $("#email");
-			$email.popover({
-				title: 'Alerta',
-				content: 'El usuario ya existe',
-				placement: 'top',
-				trigger: 'manual'
-			});
-			
-			$email.blur(function(){
-				$.ajax({
-					url: "comprobarEmail",
-					data: {"email":$(this).val()},
-					dataType: "text"
-				}).done(function(existe){
-					console.log(existe);
-					if(existe=="true"){
-						$('#email').popover('show');
-					}else{
-						$('#email').popover('hide');
-					}
-				});
-			});
-			
-			
-		});
-
-		
-	</script>
 </body>
 </html>
 </div>

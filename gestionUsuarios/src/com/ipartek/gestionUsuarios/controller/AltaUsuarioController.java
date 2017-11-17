@@ -1,12 +1,16 @@
 package com.ipartek.gestionUsuarios.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.ipartek.gestionUsuarios.domain.Usuario;
 import com.ipartek.gestionUsuarios.service.UsuarioService;
 
 /**
@@ -25,11 +29,23 @@ public class AltaUsuarioController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean alta = usuarioService.addUsuario(request);
 		
-		if(alta) {
-			response.sendRedirect("login.jsp?usuarioOK=true");
+		if(request.getParameter("ajax")!=null) {
+			PrintWriter pw = response.getWriter();
+			if(alta) {
+				Usuario usuario = usuarioService.getUsuarioByEmail(request.getParameter("email"));
+				Gson gson = new Gson();
+				pw.write(gson.toJson(usuario));
+			}else {
+				pw.write("altaKO");
+			}
 		}else {
-			response.sendRedirect("altaUsuario.html");
-		}
+			if(alta) {
+				response.sendRedirect("login.jsp?usuarioOK=true");
+			}else {
+				response.sendRedirect("altaUsuario.jsp");
+			}	
+		}	
+
 	}
 
 }

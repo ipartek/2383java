@@ -34,4 +34,8 @@ public class UsuarioService {
 		return AccesoDB.existeEmail(email);
 	}
 
+	public Usuario getUsuarioByEmail(String email) {
+		return AccesoDB.getUsuarioByEmail(email);
+	}
+
 }
